@@ -12,12 +12,13 @@ Returns a `Client` instance and connects to the server.
 | port        | *optional* |  port to connect to, default to **19132**     |
 | version     | *optional* |  Version to connect as. If not specified, automatically match server version. |
 | offline     | *optional* |  default to **false**. Set this to true to disable Microsoft/Xbox auth.   |
-| username    | Conditional | Required if `offline` set to true : Username to connect to server as.     |
+| username    | Required | The profile name to connect to the server as. If `offline` set to true, the username that will appear on join, that would normally be the Xbox Gamer Tag. |
 | connectTimeout | *optional* | default to **9000ms**. How long to wait in milliseconds while trying to connect to server. |
 | onMsaCode   | *optional* |  Callback called when signing in with a microsoft account with device code auth, `data` is an object documented [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-device-code#device-authorization-response) |
 | profilesFolder | *optional* | Where to store cached authentication tokens. Defaults to .minecraft, or the node_modules folder if not found. |
-| autoInitPlayer | *optional* |  default to true, If we should send SetPlayerInitialized to the server after getting play_status spawn.    |
 | skipPing | *optional* | Whether pinging the server to check its version should be skipped. |
+| followPort | *optional* | Update the options' port parameter to match the port broadcast on the server's ping data (default to true if `realms` not specified) |
+| autoInitPlayer | *optional* |  default to true, If we should send SetPlayerInitialized to the server after getting play_status spawn.    |
 | conLog | *optional* | Where to log connection information (server join, kick messages to). Defaults to console.log, set to `null` to not log anywhere. |
 | raknetBackend | *optional* | Specifies the raknet implementation to use. Possible options are 'raknet-native' (default, original C++ implementation), 'jsp-raknet' (JS port), and 'raknet-node' (Rust port). Please note when using the non-JS implementation you may the need approporate build tools on your system (for example a C++ or Rust compiler). |
 | compressionLevel | *optional* | What zlib compression level to use, default to **7** |
@@ -117,7 +118,7 @@ A ServerPlayer instance also emits the following special events:
 
 ## Client docs
 
-You can create a server as such:
+You can create a client like below:
 ```js
 const bedrock = require('bedrock-protocol')
 const client = bedrock.createClient({
@@ -170,7 +171,7 @@ For documentation on the protocol, and packets/fields see the [the protocol doc]
 
 ### Proxy docs
 
-You can create a proxy ("Relay") to create a machine-in-the-middle (MITM) connection to a server. You can observe and intercept packets as they go through. The Relay is a server+client combo with some special packet handling and forwarding that takes care of the authentication and encryption on the server side. You'll be asked to login if `offline` is not specified once you connect.
+You can create a proxy ("Relay") to create a machine-in-the-middle (MITM) connection to a server. You can observe and intercept packets as they go through. The Relay is a server+client combo with some special packet handling and forwarding that takes care of the authentication and encryption on the server side. Clients will be asked to login if `offline` is not specified on connection.
 
 ```js
 const { Relay } = require('bedrock-protocol')

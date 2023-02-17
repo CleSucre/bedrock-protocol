@@ -1,17 +1,17 @@
 # bedrock-protocol
 [![NPM version](https://img.shields.io/npm/v/bedrock-protocol.svg)](http://npmjs.com/package/bedrock-protocol)
 [![Build Status](https://github.com/PrismarineJS/bedrock-protocol/workflows/CI/badge.svg)](https://github.com/PrismarineJS/bedrock-protocol/actions?query=workflow%3A%22CI%22)
-[![Discord](https://img.shields.io/badge/chat-on%20discord-brightgreen.svg)](https://discord.gg/GsEFRM8)
 [![Try it on gitpod](https://img.shields.io/badge/try-on%20gitpod-brightgreen.svg)](https://gitpod.io/#https://github.com/PrismarineJS/bedrock-protocol)
 
+[![Official Discord](https://img.shields.io/static/v1.svg?label=OFFICIAL&message=DISCORD&color=blue&logo=discord&style=for-the-badge)](https://discord.gg/GsEFRM8)
 
 Minecraft Bedrock Edition (aka MCPE) protocol library, supporting authentication and encryption. Help [contribute](CONTRIBUTING.md).
 
-[Protocol doc](https://minecraft-data.prismarine.js.org/?v=bedrock_1.17.10&d=protocol)
+[Protocol doc](https://minecraft-data.prismarine.js.org/?v=bedrock_1.19.10&d=protocol)
 
 ## Features
 
- - Supports Minecraft Bedrock version 1.16.201, 1.16.210, 1.16.220, 1.17.0, 1.17.10, 1.17.30, 1.17.40, 1.18.0, 1.18.11, 1.18.30, 1.19.1, 1.19.10, 1.19.20
+ - Supports Minecraft Bedrock version 1.16.201, 1.16.210, 1.16.220, 1.17.0, 1.17.10, 1.17.30, 1.17.40, 1.18.0, 1.18.11, 1.18.30, 1.19.1, 1.19.10, 1.19.20, 1.19.21, 1.19.30, 1.19.40, 1.19.41, 1.19.50, 1.19.60
  - Parse and serialize packets as JavaScript objects
  - Automatically respond to keep-alive packets
  - [Proxy and mitm connections](docs/API.md#proxy-docs)
@@ -102,11 +102,11 @@ ping({ host: 'play.cubecraft.net', port: 19132 }).then(res => {
 
 ## Documentation
 
-For documentation on the protocol, and packets/fields see the [proto.yml](data/latest/proto.yml) and [types.yml](data/latest/proto.yml) files.
+For documentation on the protocol, and packets/fields see the [protocol documentation](https://minecraft-data.prismarine.js.org/protocol/).
 
-See [API documentation](docs/API.md)
+* See [API documentation](docs/API.md)
 
-See [faq](docs/FAQ.md)
+* See [frequently asked questions and answers](docs/FAQ.md)
 
 <!-- ## Projects Using bedrock-protocol
 
